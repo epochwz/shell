@@ -81,12 +81,16 @@ Tips(){
 # 下载全部软件管理命令
 download_all(){
     download $SELF_NAME
+
+    download MySQL
 }
 
 # 下载指定软件管理命令
 download(){
     case $1 in
         $SELF_NAME)     FILE=init.sh                ;;
+
+        MySQL)          FILE=java/mysql.sh          ;;
         *)
             [ -z "$1" ] && Tips || echo "command $1 is not yet supported!" && exit 1
         ;;
