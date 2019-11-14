@@ -83,6 +83,7 @@ download_all(){
     download $SELF_NAME
 
     download MySQL
+    download JDK
 }
 
 # 下载指定软件管理命令
@@ -91,6 +92,7 @@ download(){
         $SELF_NAME)     FILE=init.sh                ;;
 
         MySQL)          FILE=java/mysql.sh          ;;
+        JDK)            FILE=java/jdk.sh            ;;
         *)
             [ -z "$1" ] && Tips || echo "command $1 is not yet supported!" && exit 1
         ;;
