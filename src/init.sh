@@ -84,6 +84,7 @@ download_all(){
 
     download MySQL
     download JDK
+    download Maven
 }
 
 # 下载指定软件管理命令
@@ -93,6 +94,7 @@ download(){
 
         MySQL)          FILE=java/mysql.sh          ;;
         JDK)            FILE=java/jdk.sh            ;;
+        Maven)          FILE=java/maven.sh          ;;
         *)
             [ -z "$1" ] && Tips || echo "command $1 is not yet supported!" && exit 1
         ;;
