@@ -85,6 +85,7 @@ download_all(){
     download MySQL
     download JDK
     download Maven
+    download Tomcat
 }
 
 # 下载指定软件管理命令
@@ -95,6 +96,7 @@ download(){
         MySQL)          FILE=java/mysql.sh          ;;
         JDK)            FILE=java/jdk.sh            ;;
         Maven)          FILE=java/maven.sh          ;;
+        Tomcat)         FILE=java/tomcat.sh         ;;
         *)
             [ -z "$1" ] && Tips || echo "command $1 is not yet supported!" && exit 1
         ;;
@@ -118,6 +120,8 @@ uninstall(){
 
     # 删除开机启动相关设置
     sed -i "/^\.\ \//d" $STARTUP_FILE
+
+    sed -i "/^Tomcat/d" $STARTUP_FILE
 }
 # ============================== ⬆⬆⬆  核心下载函数 ⬆⬆⬆ ==============================
 
