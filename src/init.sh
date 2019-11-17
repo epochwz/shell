@@ -86,6 +86,8 @@ download_all(){
     download JDK
     download Maven
     download Tomcat
+
+    download Nginx
 }
 
 # 下载指定软件管理命令
@@ -97,6 +99,8 @@ download(){
         JDK)            FILE=java/jdk.sh            ;;
         Maven)          FILE=java/maven.sh          ;;
         Tomcat)         FILE=java/tomcat.sh         ;;
+
+        Nginx)          FILE=nginx/nginx.sh         ;;
         *)
             [ -z "$1" ] && Tips || echo "command $1 is not yet supported!" && exit 1
         ;;
@@ -122,6 +126,7 @@ uninstall(){
     sed -i "/^\.\ \//d" $STARTUP_FILE
 
     sed -i "/^Tomcat/d" $STARTUP_FILE
+    sed -i "/^Nginx/d" $STARTUP_FILE
 }
 # ============================== ⬆⬆⬆  核心下载函数 ⬆⬆⬆ ==============================
 
