@@ -88,6 +88,8 @@ download_all(){
     download Tomcat
 
     download Nginx
+
+    download IDEA-Server
 }
 
 # 下载指定软件管理命令
@@ -101,6 +103,8 @@ download(){
         Tomcat)         FILE=java/tomcat.sh         ;;
 
         Nginx)          FILE=nginx/nginx.sh         ;;
+
+        IDEA-Server)    FILE=idea/idea-server.sh    ;;
         *)
             [ -z "$1" ] && Tips || echo "command $1 is not yet supported!" && exit 1
         ;;
@@ -127,6 +131,7 @@ uninstall(){
 
     sed -i "/^Tomcat/d" $STARTUP_FILE
     sed -i "/^Nginx/d" $STARTUP_FILE
+    sed -i "/^IDEA-Server/d" $STARTUP_FILE
 }
 # ============================== ⬆⬆⬆  核心下载函数 ⬆⬆⬆ ==============================
 
