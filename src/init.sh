@@ -90,6 +90,7 @@ download_all(){
     download Nginx
 
     download IDEA-Server
+    download SSR-Server
 }
 
 # 下载指定软件管理命令
@@ -105,6 +106,7 @@ download(){
         Nginx)          FILE=nginx/nginx.sh         ;;
 
         IDEA-Server)    FILE=idea/idea-server.sh    ;;
+        SSR-Server)     FILE=ssr/ssr-server.sh      ;;
         *)
             [ -z "$1" ] && Tips || echo "command $1 is not yet supported!" && exit 1
         ;;
@@ -132,6 +134,7 @@ uninstall(){
     sed -i "/^Tomcat/d" $STARTUP_FILE
     sed -i "/^Nginx/d" $STARTUP_FILE
     sed -i "/^IDEA-Server/d" $STARTUP_FILE
+    sed -i "/^SSR-Server/d" $STARTUP_FILE
 }
 # ============================== ⬆⬆⬆  核心下载函数 ⬆⬆⬆ ==============================
 
