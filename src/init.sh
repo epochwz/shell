@@ -91,6 +91,8 @@ download_all(){
 
     download IDEA-Server
     download SSR-Server
+
+    download Vsftpd
 }
 
 # 下载指定软件管理命令
@@ -107,6 +109,8 @@ download(){
 
         IDEA-Server)    FILE=idea/idea-server.sh    ;;
         SSR-Server)     FILE=ssr/ssr-server.sh      ;;
+
+        Vsftpd)         FILE=vsftpd/vsftpd.sh       ;;
         *)
             [ -z "$1" ] && Tips || echo "command $1 is not yet supported!" && exit 1
         ;;
