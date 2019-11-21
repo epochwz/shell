@@ -81,6 +81,7 @@ Tips(){
 # 下载全部软件管理命令
 download_all(){
     download $SELF_NAME
+    download Install
 
     download MySQL
     download JDK
@@ -99,6 +100,7 @@ download_all(){
 download(){
     case $1 in
         $SELF_NAME)     FILE=init.sh                ;;
+        Install)        FILE=manager/install.sh     ;;
 
         MySQL)          FILE=java/mysql.sh          ;;
         JDK)            FILE=java/jdk.sh            ;;
