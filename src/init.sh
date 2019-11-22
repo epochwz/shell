@@ -76,6 +76,10 @@ add_login_shell(){
 Tips(){
     echo "Usage: $SELF_NAME All"
     echo "Usage: $SELF_NAME <CommandName>"
+    echo "For Examples:"
+    echo "Usage: $SELF_NAME <$SELF_NAME|Install>"
+    echo "Usage: $SELF_NAME <MySQL|JDK|Maven|Tomcat|Nginx>"
+    echo "Usage: $SELF_NAME <IDEA-Server|SSR-Server|Vsftpd>"
 }
 
 # 下载全部软件管理命令
