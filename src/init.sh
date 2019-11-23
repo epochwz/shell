@@ -80,6 +80,7 @@ Tips(){
     echo "Usage: $SELF_NAME <$SELF_NAME|Install>"
     echo "Usage: $SELF_NAME <MySQL|JDK|Maven|Tomcat|Nginx>"
     echo "Usage: $SELF_NAME <IDEA-Server|SSR-Server|Vsftpd>"
+    echo "Usage: $SELF_NAME <RAM>"
 }
 
 # 下载全部软件管理命令
@@ -98,6 +99,8 @@ download_all(){
     download SSR-Server
 
     download Vsftpd
+
+    download RAM
 }
 
 # 下载指定软件管理命令
@@ -117,6 +120,8 @@ download(){
         SSR-Server)     FILE=ssr/ssr-server.sh      ;;
 
         Vsftpd)         FILE=vsftpd/vsftpd.sh       ;;
+
+        RAM)            FILE=system/ram.sh          ;;
         *)
             [ -z "$1" ] && Tips || echo "command $1 is not yet supported!" && exit 1
         ;;

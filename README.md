@@ -42,6 +42,7 @@ Nginx reload            # 重载配置文件
 | [IDEA License Server](#idea-license-server) | 安装、卸载、启动、停止、开机启动                               |
 | [ShadowsocksR Server](#shadowsocksr-server) | 安装、卸载、启动、停止、开机启动                               |
 | [Vsftpd](#vsftpd)                           | 安装、卸载、配置更新、添加 FTP 用户                            |
+| [RAM](#ram)                                 | 启用、禁用、系统重启                                          |
 
 > **Tips:** 本文档中如果没有特殊说明，则 `<xxx>` 表示必选项，`{xxx}` 表示可选项，`<A|B|C>` 和 `{A|B|C}` 表示选项具体支持的参数值
 
@@ -160,3 +161,11 @@ Install userdel <username>
 | `Vsftpd userdel <username>`            | 删除 FTP 用户           | 删除 Linux 用户，并移出 FTP 白名单               |
 | `Vsftpd listadd <username>`            | 往 FTP 白名单中添加用户 |                                                |
 | `Vsftpd listdel <username>`            | 从 FTP 白名单中删除用户 |                                                |
+
+### RAM
+
+| Command               | Feature                                       |
+|:----------------------|:----------------------------------------------|
+| `RAM enable <size/M>` | 启用虚拟内存，并指定大小，单位是 `M`, 默认 1024M |
+| `RAM disable`         | 禁用虚拟内存                                   |
+| `RAM reboot`          | 重启系统                                       |
