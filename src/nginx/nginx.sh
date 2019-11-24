@@ -125,6 +125,8 @@ download_vhost_file(){
 
 download_vhost_file_all(){
     download_vhost_file idea.epoch.fun.conf
+    download_vhost_file file.epoch.fun.conf
+    download_vhost_file mall.epoch.fun.conf
 
     reload
 }
