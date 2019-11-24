@@ -37,6 +37,8 @@ init(){
     CONF_FILE=$SETUP_PATH/conf/server.xml
     # PID_NAME
     PID_NAME=$VERSION_NAME
+    # 软件环境变量
+    CATALINA_HOME=$SETUP_PATH
 }
 
 stop(){
@@ -46,6 +48,8 @@ stop(){
     PID=$(pgrep -f $STARTUP) && kill $PID
     # 强制杀死所有PID_NAME进程
     PID=$(pgrep -f $PID_NAME | grep -v $$) && [ -n "$PID" ] && kill $PID 2>/dev/null
+
+    shutdown.sh 2>/dev/null 1>&2
 }
 
 start(){
@@ -59,6 +63,7 @@ uninstall(){
     rm -rf $SETUP_PATH
 
     sed -i "s|TOMCAT_VERSION=$TOMCAT_VERSION||g" $ENV_FILE
+    sed -i "s|CATALINA_HOME=$CATALINA_HOME||g" $ENV_FILE
 }
 
 install(){
@@ -82,7 +87,19 @@ switch(){
 setenv(){
     sed -i "/^TOMCAT_VERSION/d" $ENV_FILE && sed -i '$a'"TOMCAT_VERSION=$TOMCAT_VERSION" $ENV_FILE
 
+    # unset old env
+    sed -i "/^export CATALINA_HOME/d" $ENV_FILE
+    sed -i "/^PATH=\$CATALINA_HOME/d" $ENV_FILE
+
+    # set new env
+    sed -i "1iexport CATALINA_HOME=$CATALINA_HOME" $ENV_FILE
+    sed -i "2iPATH=\$CATALINA_HOME/bin:\$PATH" $ENV_FILE
+
+    # refresh env
     source $ENV_FILE
+
+    # verify
+    catalina.sh version
 }
 
 # ============================== ⬇⬇⬇  Main ⬇⬇⬇ ==============================
@@ -103,6 +120,7 @@ case $1 in
     ;;
     switch)
         [ -z "$2" ] && echo "Usage: $SELF_NAME switch <version>" && exit 1
+        init && stop
         TOMCAT_VERSION=$2 && init && $1
     ;;
     start)  init && $1 ;;
