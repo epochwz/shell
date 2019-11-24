@@ -7,7 +7,7 @@ SELF_NAME=$(basename $BASH_SOURCE)
 # ============================== ⬆⬆⬆  无需改动 ⬆⬆⬆ ==============================
 
 # 版本名称
-MYSQL_VERSION=mysql-apt-config_0.8.12-1_all.deb
+MYSQL_VERSION=mysql-apt-config_0.8.14-1_all.deb
 # 下载链接
 DOWNLOAD_URL=https://repo.mysql.com/$MYSQL_VERSION
 # 下载路径
