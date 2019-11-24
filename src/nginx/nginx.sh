@@ -42,6 +42,8 @@ stop(){
     PID=$(pgrep -f $STARTUP) && [ -n "$PID" ] && kill $PID 2>/dev/null
     # 强制杀死所有PID_NAME进程
     PID=$(pgrep -f $PID_NAME | grep -v $$) && [ -n "$PID" ] && kill $PID 2>/dev/null
+
+    nginx -s stop 2>/dev/null 1>&2
 }
 
 start(){
@@ -63,6 +65,7 @@ uninstall(){
     rm -rf $SRCCODE_PATH/$VERSION_NAME
 
     sed -i "s|NGINX_VERSION=$NGINX_VERSION||g" $ENV_FILE
+    sed -i "s|alias nginx='sudo $STARTUP'||g" $ENV_FILE
 }
 
 install(){
@@ -102,7 +105,7 @@ switch(){
 
 setenv(){
     sed -i "/^NGINX_VERSION/d" $ENV_FILE && echo "NGINX_VERSION=$NGINX_VERSION" >> $ENV_FILE
-
+    sed -i "/^alias nginx/d" $ENV_FILE && echo "alias nginx='sudo $STARTUP'" >> $ENV_FILE
     source $ENV_FILE
 }
 
@@ -148,6 +151,7 @@ case $1 in
     ;;
     switch)
         [ -z "$2" ] && echo "Usage: $SELF_NAME switch <version>" && exit 1
+        init && stop
         NGINX_VERSION=$2 && init && $1
     ;;
     start)  init && $1 ;;
