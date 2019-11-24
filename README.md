@@ -35,7 +35,7 @@ Nginx reload            # 重载配置文件
 | [Init](#init)                               | 更新本项目所提供的所有软件管理命令，包括 `Init` 本身            |
 | [Install](#install)                         | 提供一些补充功能 （SSH 相关配置、添加 Linux 用户、便捷安装软件） |
 | [MySQL](#mysql)                             | 安装、卸载                                                    |
-| [JDK](#jdk)                                 | 安装、卸载、版本切换                                          |
+| [OpenJDK](#openjdk)                         | 安装、卸载、版本切换                                          |
 | [Maven](#maven)                             | 安装、卸载、版本切换                                          |
 | [Tomcat](#tomcat)                           | 安装、卸载、版本切换、启动、停止、开机启动                      |
 | [Nginx](#nginx)                             | 安装、卸载、版本切换、启动、停止、开机启动、配置文件更新         |
@@ -93,13 +93,13 @@ Install userdel <username>
 | `MySQL install`   | 安装    | 需要在命令行中交互式地进行相关配置 |
 | `MySQL uninstall` | 卸载    | 需要在命令行中交互式地进行相关配置 |
 
-### JDK
+### OpenJDK
 
-| Command                   | Feature | Comment                    |
-|:--------------------------|:--------|:---------------------------|
-| `JDK install <version>`   | 重装    |                            |
-| `JDK uninstall {version}` | 卸载    | 若不指定版本，则卸载当前版本 |
-| `JDK switch <version>`    | 切换版本 | 如果未安装，则自动安装      |
+| Command                       | Feature | Comment                    |
+|:------------------------------|:--------|:---------------------------|
+| `OpenJDK install <version>`   | 重装    |                            |
+| `OpenJDK uninstall {version}` | 卸载    | 若不指定版本，则卸载当前版本 |
+| `OpenJDK switch <version>`    | 切换版本 | 如果未安装，则自动安装      |
 
 ### Maven
 

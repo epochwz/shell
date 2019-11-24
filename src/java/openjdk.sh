@@ -8,28 +8,19 @@ SELF_NAME=$(basename $BASH_SOURCE)
 
 init(){
     case $1 in
-        8)
-            # 版本名称
-            VERSION_NAME=jdk8u40
-            # 压缩包名称
-            ZIP_NAME=jdk_ri-8u40-b25-linux-x64-10_feb_2015.tar.gz
-            # 下载链接
-            DOWNLOAD_URL=https://download.java.net/openjdk/$VERSION_NAME/ri/$ZIP_NAME
-            # JDK 解压目录的名称
-            UNZIP_NAME=java-se-8u40-ri
-            # JDK 解压目录(临时)
-            UNZIP_PATH=$SOFTWARE_PATH/$UNZIP_NAME
-
-            # JDK 安装包存储路径
-            DOWNLOAD_PATH=$PACKAGE_PATH/$ZIP_NAME
-            # JDK 安装路径
-            JAVA_HOME=$SOFTWARE_PATH/$VERSION_NAME
-        ;;
+        8)  ;;
+        11) ;;
+        12) ;;
+        13) ;;
         *)
             echo "This version is not yet supported!"
             exit 1
         ;;
     esac
+    # 版本名称
+    VERSION=openjdk-$1-jdk
+    # 安装路径
+    JAVA_HOME=/usr/lib/jvm/java-$1-openjdk-amd64
 }
 
 uninstall(){
@@ -41,19 +32,9 @@ uninstall(){
 install(){
     uninstall
 
-    wget -c $DOWNLOAD_URL -O $DOWNLOAD_PATH || exit 1
-
-    tar -zxf $DOWNLOAD_PATH -C $SOFTWARE_PATH && mv $UNZIP_PATH $JAVA_HOME || exit 1
+    sudo apt-get update -y && sudo apt-get install $VERSION -y
 
     setenv
-}
-
-switch(){
-    if [ ! -d $JAVA_HOME ];then
-        install
-    else
-        setenv
-    fi
 }
 
 setenv(){
@@ -70,6 +51,14 @@ setenv(){
 
     # verify
     javac -version
+}
+
+switch(){
+    if [ ! -d $JAVA_HOME ];then
+        install
+    else
+        setenv
+    fi
 }
 
 # ============================== ⬇⬇⬇  Main ⬇⬇⬇ ==============================

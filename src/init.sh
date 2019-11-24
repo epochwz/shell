@@ -78,7 +78,7 @@ Tips(){
     echo "Usage: $SELF_NAME <CommandName>"
     echo "For Examples:"
     echo "Usage: $SELF_NAME <$SELF_NAME|Install>"
-    echo "Usage: $SELF_NAME <MySQL|JDK|Maven|Tomcat|Nginx>"
+    echo "Usage: $SELF_NAME <MySQL|OpenJDK|Maven|Tomcat|Nginx>"
     echo "Usage: $SELF_NAME <IDEA-Server|SSR-Server|Vsftpd>"
     echo "Usage: $SELF_NAME <RAM>"
 }
@@ -90,6 +90,7 @@ download_all(){
 
     download MySQL
     download JDK
+    download OpenJDK
     download Maven
     download Tomcat
 
@@ -111,6 +112,7 @@ download(){
 
         MySQL)          FILE=java/mysql.sh          ;;
         JDK)            FILE=java/jdk.sh            ;;
+        OpenJDK)        FILE=java/openjdk.sh        ;;
         Maven)          FILE=java/maven.sh          ;;
         Tomcat)         FILE=java/tomcat.sh         ;;
 
