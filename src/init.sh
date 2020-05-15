@@ -96,6 +96,7 @@ download_all(){
     download Redis
 
     download Nginx
+    download OpenRestry
 
     download IDEA-Server
     download SSR-Server
@@ -119,6 +120,7 @@ download(){
         Redis)          FILE=java/redis.sh          ;;
 
         Nginx)          FILE=nginx/nginx.sh         ;;
+        OpenRestry)     FILE=nginx/openrestry.sh    ;;
 
         IDEA-Server)    FILE=idea/idea-server.sh    ;;
         SSR-Server)     FILE=ssr/ssr-server.sh      ;;
