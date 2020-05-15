@@ -93,6 +93,7 @@ download_all(){
     download OpenJDK
     download Maven
     download Tomcat
+    download Redis
 
     download Nginx
 
@@ -115,6 +116,7 @@ download(){
         OpenJDK)        FILE=java/openjdk.sh        ;;
         Maven)          FILE=java/maven.sh          ;;
         Tomcat)         FILE=java/tomcat.sh         ;;
+        Redis)          FILE=java/redis.sh          ;;
 
         Nginx)          FILE=nginx/nginx.sh         ;;
 
